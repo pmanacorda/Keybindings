@@ -80,6 +80,27 @@ alias ll='eza -la --git --group --time-style=long-iso --icons'
 alias tree='eza --tree --level=2'
 ```
 
+## Bash
+
+```bash
+# Exit on error, undefined variables, and pipe failures
+set -eou pipefail
+
+# Variable assignment and command substitution
+variable=$(expression)
+$(command)
+
+# Error checking
+if [ $? -ne 0 ]; then
+  # Handle error
+fi
+
+# Check if variable is empty
+if [ -z "$VAR" ]; then
+  # Variable is empty
+fi
+```
+
 ## Git
 
 ### Custom Git Functions
