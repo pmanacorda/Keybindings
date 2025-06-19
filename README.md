@@ -75,6 +75,10 @@
 | `top` / `htop` | System monitor |
 | `history` | Command history |
 | `!!` | Repeat last command |
+```bash
+alias ll='eza -la --git --group --time-style=long-iso --icons'
+alias tree='eza --tree --level=2'
+```
 
 ## Git
 
