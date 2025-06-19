@@ -9,28 +9,52 @@
 | `Ctrl+T` | New Tab |
 | `Ctrl+W` | Close Tab |
 | `Ctrl+Tab` / `Ctrl+Shift+Tab` | Next/Previous Tab |
+| `Ctrl+1-8` | Jump to Tab by Number |
+| `Ctrl+R` | Refresh Page |
+| `Ctrl+Shift+R` | Hard Refresh |
+| `Ctrl+D` | Bookmark Page |
+| `F5` | Refresh |
 | `F11` | Full Screen |
+| `F12` | Developer Tools |
 
 ## Windows
 
 | Shortcut | Action |
 |----------|---------|
 | `Win` | Search Files |
+| `Win+R` | Run Dialog |
+| `Win+X` | Power User Menu |
+| `Win+E` | File Explorer |
+| `Win+L` | Lock Screen |
+| `Win+D` | Show Desktop |
+| `Win+M` | Minimize All Windows |
+| `Win+V` | Clipboard History |
+| `Win+H` | Voice Typing |
 | `Alt+Tab` / `Ctrl+Alt+Tab` | Next/Previous Window |
-| `Win+Tab` | Window View |
+| `Win+Tab` | Task View |
 | `Win+Ctrl+Left/Right` | Next/Previous Desktop |
-| `Win+Up/Left/Right` | Desktop Window Split |
+| `Win+Ctrl+D` | Create New Desktop |
+| `Win+Ctrl+F4` | Close Current Desktop |
+| `Win+Up/Down/Left/Right` | Snap Window |
 | `Alt+D` | Show Desktop |
-| `Alt+F4` | Kill Process |
+| `Alt+F4` | Close Application |
+| `Ctrl+Shift+Esc` | Task Manager |
 
 ## Terminal
 
 | Shortcut | Action |
 |----------|---------|
+| `Ctrl+C` | Interrupt/Cancel Command |
+| `Ctrl+L` | Clear Screen |
+| `Ctrl+A` | Move to Beginning of Line |
+| `Ctrl+E` | Move to End of Line |
+| `Up Arrow` | Previous Command |
+| `Down Arrow` | Next Command |
 | `Alt+Enter` | Full Screen |
 | `Ctrl+Shift+T` | New Tab |
 | `Ctrl+Shift+W` | Close Tab |
 | `Ctrl+Shift+Space` | Open New Tab Options |
+| `Ctrl+Tab` | Switch Tabs |
 
 ### Terminal Commands
 
@@ -38,17 +62,25 @@
 |---------|-------------|
 | `explorer .` | Launch File Explorer |
 | `code .` | Launch VS Code |
+| `ls -la` | List all files with details |
+| `cd ..` | Go to previous directory |
+| `mkdir -p path/to/dir` | Create nested directories |
+| `cp -r source dest` | Copy directory recursively |
+| `mv source dest` | Move/rename file |
+| `rm -rf directory` | Remove directory and contents |
+| `find . -name "*.txt"` | Find files by pattern |
+| `grep -r "pattern" .` | Search text in files |
+| `ps aux` | Find running processes |
+| `kill -9 PID` | Force kill process |
+| `top` / `htop` | System monitor |
+| `history` | Command history |
+| `!!` | Repeat last command |
 
 ## Git
 
 ### Custom Git Functions
 
 ```bash
-alias gs="git status"
-alias gt="git log --all --graph --decorate --oneline --simplify-by-decoration"
-alias gl="git log --oneline"
-alias gnuke="git reset --hard && git clean -dfx"
-
 # Commit with message
 gcm() { git commit -m "$*" }
 
@@ -85,48 +117,33 @@ gd() {
 }
 ```
 
-## Bash
-
-### Common Patterns
-
-```bash
-# Exit on error, undefined variables, and pipe failures
-set -eou pipefail
-
-# Variable assignment and command substitution
-variable=$(expression)
-$(command)
-
-# Error checking
-if [ $? -ne 0 ]; then
-  # Handle error
-fi
-
-# Check if variable is empty
-if [ -z "$VAR" ]; then
-  # Variable is empty
-fi
-```
-
 ## Curl
 
 ```bash
+# Pattern
 curl -sSL -X <METHOD> <URL> -H @headers.json -d @data.json
 ```
 
-## Grep & Pipe Operations
+## Grep
 
 | Option | Description |
 |--------|-------------|
 | `-i` | Case insensitive |
-| `-A/B {num}` | Include top/bottom rows |
-| `-E {pattern}` | Match pattern (useful for \| condition) |
-| `\| xargs` | Feed output to next command |
+| `-n` | Show line numbers |
+| `-c` | Count matches |
+| `-C {num}` | Include lines around match |
+| `-E {pattern}` | Extended regex |
 
-## jq
+## jq (JSON Processor)
 
 ```bash
-jq -r '.field.subfield[x:y]'
+# Basic usage
+jq '.field.subfield.array[x:y]' file.json     # Pretty print JSON
+jq -r '.' file.json                           # Raw output (no quotes)
+jq 'keys' file.json                           # Object keys
+jq 'values' file.json                         # Object values
+jq '.[] | select(.age > 25)' file.json        # Filter by condition
+jq '.[] | {name: .name, age: .age}' file.json # Project
 ```
 
 ## VS Code
