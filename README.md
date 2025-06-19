@@ -91,7 +91,7 @@ variable=$(expression)
 $(command)
 
 # Error checking
-if [ $? -ne 0 ]; then
+if [ "$?" -ne 0 ]; then
   # Handle error
 fi
 
@@ -99,6 +99,21 @@ fi
 if [ -z "$VAR" ]; then
   # Variable is empty
 fi
+
+# Get input params
+while getopts a:b:c option
+do
+    case "${option}"
+        in
+            a) AppName=${OPTARG};;
+            b) OtherVar=${OPTARG};;
+            c) AnotherVar=${OPTARG};;
+            *) echo "Invalid option: -$OPTARG" >&2 ;;
+    esac
+done
+
+output > json (Redirection)
+output >> json (Appending)
 ```
 
 ## Git
@@ -205,6 +220,7 @@ jq '.[] | {name: .name, age: .age}' file.json # Project
 | `F5` | Run & Debug |
 | `F10` | Step Over |
 | `F11` | Step Into |
+| `F8` | Next Problem |
 
 ### Code Navigation
 
