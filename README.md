@@ -1,7 +1,5 @@
 # Keyboard Shortcuts & Commands Reference
 
-> **Note**: `C` stands for `Ctrl`
-
 ## Chrome
 
 | Shortcut | Action |
@@ -46,6 +44,11 @@
 ### Custom Git Functions
 
 ```bash
+alias gs="git status"
+alias gt="git log --all --graph --decorate --oneline --simplify-by-decoration"
+alias gl="git log --oneline"
+alias gnuke="git reset --hard && git clean -dfx"
+
 # Commit with message
 gcm() { git commit -m "$*" }
 
