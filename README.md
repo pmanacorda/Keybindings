@@ -160,6 +160,11 @@ gd() {
     git diff --staged "$1"
   fi
 }
+
+git config --global core.pager "delta"
+git config --global interactive.diffFilter "delta --color-only"
+git config --global delta.features "side-by-side line-numbers decorations"
+git config --global delta.syntax-theme "gruvbox"
 ```
 
 ## Curl
