@@ -184,6 +184,28 @@ curl -sSL -X <METHOD> <URL> -H @headers.json -d @data.json
 | `-C {num}` | Include lines around match |
 | `-E {pattern}` | Extended regex |
 
+# xiozide
+zi -> fuzzy go to  
+z -> goto
+
+# fzf + tmux
+Ctrl-T: Fuzzy find files and directories in the current directory and its subdirectories. The selected path is pasted into your command line.
+Ctrl-R: Fuzzy search through your command history. No more endlessly pressing the up arrow!
+Alt-C: Fuzzy find a directory and cd into it immediately.
+Ctrl-B S	Fuzzy find and switch tmux sessions
+Ctrl-B W	Fuzzy find and switch tmux windows (within a session)
+Ctrl-R	Fuzzy find your command history (in any shell)
+Ctrl-T	Fuzzy find files and paste the path to your command line
+Alt-C	Fuzzy find a directory and cd into it instantly
+Ctrl-B c Create a new window
+Ctrl-B ,Rename the current window  
+Ctrl-B &	Kill the current window (requires confirmation)
+Ctrl-B % Split pane vertically
+Ctrl-B "Split pane horizontally
+Ctrl-B ↑↓←→Navigate between panes using arrow keys
+Ctrl-B xKill the current pane (requires confirmation)    
+
+
 ## jq (JSON Processor)
 
 ```bash
